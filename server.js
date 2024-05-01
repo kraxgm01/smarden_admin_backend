@@ -41,6 +41,11 @@ const ImageSchema = new mongoose.Schema({
 });
 const Image = mongoose.model('Image', ImageSchema);
 
+//root endpoint to check if the server is running
+app.get('/', (req, res) => {
+    res.send('Server is running!');
+  });
+
 // Endpoint to upload image and save data
 app.post('/upload', upload.single('image'), async (req, res) => {
     const { name, code, city } = req.body;
